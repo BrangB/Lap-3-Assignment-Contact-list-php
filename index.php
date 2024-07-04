@@ -10,7 +10,7 @@
 <body>
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="col-12 col-md-10 col-lg-8">
-        <h1 class="text-center mb-4">Contact List</h1>
+        <h1 class="text-center mb-4 fw-bold">Contact List</h1>
         <!-- Add New Contact Button -->
         <div class="text-center mb-4">
             <a href="create.php" class="btn btn-success">Add New Contact</a>
