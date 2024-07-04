@@ -45,10 +45,8 @@
                         echo "<td>" . $row["email"] . "</td>";
                         echo "<td>" . $row["address"] . "</td>";
                         echo "<td>
-                                <button type='button' class='btn btn-warning btn-sm'>
-                                    <a href='edit.php?id=" . $row["id"] . "' class='text-decoration-none text-light'>Edit</a>
-                                </button>
-                                <button type='button' class='btn btn-danger btn-sm'>Delete</button>
+                                <a href='edit.php?id=" . $row["id"] . "' class='btn btn-warning btn-sm text-decoration-none text-light'>Edit</a>
+                                <a href='delete_contact.php?id=" . $row["id"] . "' class='btn btn-danger btn-sm text-decoration-none text-light'>Delete</a>
                               </td>";
                         echo "</tr>";
                     }
