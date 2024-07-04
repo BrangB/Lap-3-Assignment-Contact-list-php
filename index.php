@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="d-flex justify-content-center align-items-center vh-100">
+<div class="d-flex justify-content-center align-items-center vh-100 bg-image">
     <div class="col-12 col-md-10 col-lg-8">
         <h1 class="text-center mb-4 fw-bold">Contact List</h1>
         <!-- Add New Contact Button -->
