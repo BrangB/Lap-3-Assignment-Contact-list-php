@@ -14,28 +14,30 @@
             <div class="row justify-content-center mt-5">
                 <div class="col-12 col-md-8 col-lg-6">
                     <?php
-                    // Include the database connection file
                     include 'db.php';
 
-                    // Fetch contact data to populate the form
                     if (isset($_GET['id'])) {
                         $id = $_GET['id'];
 
-                        // Prepare and execute the query
-                        $stmt = $conn->prepare("SELECT name, phone, email, address FROM contacts WHERE id = ?");
-                        $stmt->bind_param("i", $id);
-                        $stmt->execute();
-                        $stmt->bind_result($name, $phone, $email, $address);
-                        $stmt->fetch();
+                        $result = $conn->query("SELECT name, phone, email, address FROM contacts WHERE id = $id");
 
-                        // Close the statement
-                        $stmt->close();
+                        if ($result && $result->num_rows > 0) {
+                            $row = $result->fetch_assoc();
+                            $name = $row['name'];
+                            $phone = $row['phone'];
+                            $email = $row['email'];
+                            $address = $row['address'];
+                        } else {
+                            echo "<div class='alert alert-danger'>Contact not found.</div>";
+                            exit();
+                        }
+
+                        $result->free();
                     } else {
                         echo "<div class='alert alert-danger'>Invalid request.</div>";
                         exit();
                     }
 
-                    // Close the connection
                     $conn->close();
                     ?>
                     <?php if (isset($name)): ?>
