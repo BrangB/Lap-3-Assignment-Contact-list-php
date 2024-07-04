@@ -28,7 +28,7 @@ This guide explains how to set up a local MySQL database using XAMPP for your pr
 
 ### 4. Create Table
 
-1. Select the newly created `contacts_db` database from the left sidebar.
+1. Select the newly created `lap3_contact` database from the left sidebar.
 2. Click on the "SQL" tab in the top menu.
 3. Paste the following SQL query into the text area and click "Go" to create the `contacts` table:
    ```sql
