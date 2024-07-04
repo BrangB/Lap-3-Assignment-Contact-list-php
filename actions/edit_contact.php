@@ -1,32 +1,26 @@
 <?php
-// Include the database connection file
+
 include '../db.php';
 
-// Check if the form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form data
+
     $id = $_POST['id'];
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     $address = $_POST['address'];
 
-    // Prepare and bind
-    $stmt = $conn->prepare("UPDATE contacts SET name = ?, phone = ?, email = ?, address = ? WHERE id = ?");
-    $stmt->bind_param("ssssi", $name, $phone, $email, $address, $id);
+    $sql = "UPDATE contacts SET name = '$name', phone = '$phone', email = '$email', address = '$address' WHERE id = $id";
 
-    // Execute the statement
-    if ($stmt->execute()) {
+    if ($conn->query($sql) === TRUE) {
         echo "<div class='alert alert-success'>Contact updated successfully</div>";
     } else {
-        echo "<div class='alert alert-danger'>Error: " . $stmt->error . "</div>";
+        echo "<div class='alert alert-danger'>Error: " . $conn->error . "</div>";
     }
 
-    // Close the statement and connection
-    $stmt->close();
     $conn->close();
 
-    // Redirect back to the contact list or another page
     header("Location: ../index.php");
     exit();
 } else {
