@@ -11,7 +11,6 @@
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="col-12 col-md-10 col-lg-8">
         <h1 class="text-center mb-4">Contact List</h1>
-        <!-- Add New Contact Button -->
         <div class="text-center mb-4">
             <a href="create.php" class="btn btn-success">Add New Contact</a>
         </div>
@@ -28,15 +27,15 @@
             </thead>
             <tbody>
                 <?php
-                // Include the database connection file
+
                 include 'db.php';
 
-                // Fetch data from contacts table
+
                 $sql = "SELECT id, name, phone, email, address FROM contacts";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
-                    // Output data of each row
+
                     while($row = $result->fetch_assoc()) {
                         echo "<tr>";
                         echo "<th scope='row'>" . $row["id"] . "</th>";
@@ -56,7 +55,7 @@
                     echo "<tr><td colspan='6' class='text-center'>No contacts found</td></tr>";
                 }
 
-                // Close connection
+
                 $conn->close();
                 ?>
             </tbody>
